@@ -19,7 +19,21 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-
+ <TextView
+        android:id="@+id/txtPicoftheday"
+        style="@style/txtPoppinssemibold36"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:singleLine="true"
+        android:text="@string/lbl_pic_of_the_day"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/lbl_pic_of_the_day" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
