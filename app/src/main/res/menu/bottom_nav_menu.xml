@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_overview"
+        android:icon="@drawable/img_home"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_earth"
+        android:icon="@drawable/img_microsoftholol"
+        android:title="@string/title_Earth" />
+
+    <item
+        android:id="@+id/navigation_mars"
+        android:icon="@drawable/img_playlist"
+        android:title="@string/title_Mars" />
+
+</menu>
+
