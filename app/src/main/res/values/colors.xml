@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black_900_7f">#7f000000</color>
+    <color name="white_A700_33">#33ffffff</color>
+    <color name="gray_900_0c">#0c101828</color>
+    <color name="black_900">#000000</color>
+    <color name="bluegray_500">#667085</color>
+    <color name="gray_901">#101828</color>
+    <color name="white_A700_26">#26ffffff</color>
+    <color name="bluegray_100_cc">#ccd9d9d9</color>
+    <color name="gray_900">#141414</color>
+    <color name="white_A700_16">#16ffffff</color>
+    <color name="white_A700">#ffffff</color>
 </resources>
