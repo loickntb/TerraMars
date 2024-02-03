@@ -10,4 +10,11 @@ class MarsViewModel : ViewModel() {
         value = "This is MArs Fragment"
     }
     val text: LiveData<String> = _text
+
+    private val _selectedDate = MutableLiveData<String>()
+    val selectedDate: LiveData<String> = _selectedDate
+
+    fun updateSelectedDate(date: String) {
+        _selectedDate.value = date
+    }
 }

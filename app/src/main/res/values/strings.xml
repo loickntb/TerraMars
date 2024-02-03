@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TerraMars</string>
     <string name="title_home">Home</string>
-    <string name="title_Earth">Earth</string>
+    <string name="title_Earth">Terre</string>
     <string name="title_Mars">Mars</string>
 
     <string name="loading">Loading…</string>
@@ -11,7 +11,8 @@
     <string name="lbl_terramars">TerraMars </string>
     <string name="lbl_earth">Earth</string>
     <string name="lbl_camera_1">Camera 1</string>
-    <string name="lbl_pic_of_the_day">Pic of the day</string>
+    <string name="lbl_pic_of_the_day">Image du jour</string>
+    <string name="lbl_pics_of_mars">Les images de mars</string>
     <string name="msg_stellar_discove">Stellar Discoveries: Embark on an illuminating voyage to uncover the secrets of stars. </string>
     <string name="lbl_save">SAVE</string>
     <string name="msg_description_her2">description 2 </string>
