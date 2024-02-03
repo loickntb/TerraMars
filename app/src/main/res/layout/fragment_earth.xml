@@ -1,22 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.earth.EarthFragment">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/satellite_day">
 
     <TextView
-        android:id="@+id/text_earth"
+        android:id="@+id/textEarth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/poppins"
+        android:text="La Terre par Satellite"
+        android:textColor="#FFFFFF"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextLatitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:hint="Latitude exemple : 1.5"
+        android:inputType="numberDecimal"
+        android:textColor="#000000"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/editTextLongitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Longitude exemple : 100.75"
+        android:inputType="numberDecimal"
+        android:textColor="#000000"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date (YYYY-MM-DD) exemple : 2016-02-01"
+        android:inputType="text"
+        android:textColor="#000000"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/buttonFetchEarthImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Obtenir l'image Satellite"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Le satellite passe au-dessus de chaque point de la terre environ une fois tous les seize jours. Il s'agit d'une visualisation étonnante du modèle d'acquisition de l'imagerie Landsat 8. L'objectif de ce point final est principalement de soutenir l'utilisation du point final d'imagerie."
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imageViewEarth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class EarthViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is Eerth Fragment"
+        value = "La Terre par Satellite"
     }
     val text: LiveData<String> = _text
 }
