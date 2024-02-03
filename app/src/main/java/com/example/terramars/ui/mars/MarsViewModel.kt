@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class MarsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is MArs Fragment"
+        value = "Mars est une planète magnifique !"
     }
     val text: LiveData<String> = _text
 

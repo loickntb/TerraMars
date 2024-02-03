@@ -46,6 +46,7 @@ class MarsFragment : Fragment() {
 
                 isDatePickerVisible = !isDatePickerVisible
                 if (isDatePickerVisible) {
+                    btnShowImages.text = "Afficher les image de mars !"
                     datePicker.visibility = View.VISIBLE
                 } else {
                     datePicker.visibility = View.GONE
