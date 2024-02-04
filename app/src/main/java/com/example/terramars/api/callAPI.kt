@@ -1,6 +1,8 @@
 package com.example.terramars.api
+import android.util.Log
 import com.example.terramars.api.retrofitInstance
-import com.example.terramars.api.marsPic
+import com.example.terramars.api.marsPic.MarsPic
+import com.example.terramars.api.marsPic.MarsPhotosResponse
 import com.example.terramars.api.picoftheDay
 import com.example.terramars.api.earthPic
 import retrofit2.Call
@@ -13,14 +15,17 @@ class callAPI {
     fun getMarsPhotos(earthDate: String, onResult: (List<String>?) -> Unit) {
         val call = retrofitInstance.RetrofitInstance.api.getMarsPhotos(earthDate = earthDate)
 
-        call.enqueue(object : Callback<List<marsPic.MarsPic>> {
-            override fun onResponse(call: Call<List<marsPic.MarsPic>>, response: Response<List<marsPic.MarsPic>>) {
+        call.enqueue(object : Callback<marsPic.MarsPhotosResponse> {
+            override fun onResponse(
+                call: Call<marsPic.MarsPhotosResponse>,
+                response: Response<marsPic.MarsPhotosResponse>
+            ) {
                 if (response.isSuccessful) {
-                    val marsPhotos: List<marsPic.MarsPic>? = response.body()
+                    val marsPhotosResponse: marsPic.MarsPhotosResponse? = response.body()
                     val imageUrls = mutableListOf<String>()
 
-                    marsPhotos?.forEach {
-                        imageUrls.add(it.imgSrc)
+                    marsPhotosResponse?.photos?.forEach { marsPic ->
+                        imageUrls.add(marsPic.imgSrc)
                     }
 
                     onResult(imageUrls)
@@ -29,11 +34,14 @@ class callAPI {
                 }
             }
 
-            override fun onFailure(call: Call<List<marsPic.MarsPic>>, t: Throwable) {
+
+            override fun onFailure(call: Call<marsPic.MarsPhotosResponse>, t: Throwable) {
+                Log.e("MainActivity", "Erreur lors de l'appel à l'API : ${t.message}", t)
                 onResult(null)
             }
         })
     }
+
 
     fun getEarthImage(latitude: Double, longitude: Double, date: String, onResult: (String?) -> Unit) {
         val call = retrofitInstance.RetrofitInstance.api.getEarthImage(latitude, longitude, date = date)

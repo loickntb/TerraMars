@@ -21,7 +21,7 @@ interface NasaApiService {
         @Query("earth_date") earthDate: String,
         @Query("sol") sol: Int? = null,
         @Query("api_key") apiKey: String = "hKAEhMktBDWsAx97o0roniKxhv2jMSKInUGjLh7V"
-    ): Call<List<marsPic.MarsPic>>
+    ): Call<marsPic.MarsPhotosResponse>
 
 
     @GET("planetary/earth/imagery")
