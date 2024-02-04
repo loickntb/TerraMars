@@ -3,18 +3,15 @@ package com.example.terramars.api
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
-import com.example.terramars.api.picoftheDay
-import com.example.terramars.api.earthPic
-import com.example.terramars.api.marsPic
 
 
 interface NasaApiService {
 
 
     @GET("planetary/apod")
-    fun getPicOfTheDay(
+    fun getApod(
         @Query("api_key") apiKey: String = "hKAEhMktBDWsAx97o0roniKxhv2jMSKInUGjLh7V",
-    ): Call<picoftheDay.PicOfTheDay>
+    ): Call<ApodData.ApodResponse>
 
     @GET("mars-photos/api/v1/rovers/curiosity/photos")
     fun getMarsPhotos(

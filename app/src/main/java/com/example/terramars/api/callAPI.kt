@@ -1,10 +1,5 @@
 package com.example.terramars.api
 import android.util.Log
-import com.example.terramars.api.retrofitInstance
-import com.example.terramars.api.marsPic.MarsPic
-import com.example.terramars.api.marsPic.MarsPhotosResponse
-import com.example.terramars.api.picoftheDay
-import com.example.terramars.api.earthPic
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,6 +7,27 @@ import retrofit2.Response
 
 class callAPI {
 
+    fun getApodData(onResult: (ApodData.ApodResponse?) -> Unit) {
+        val apiKey = "hKAEhMktBDWsAx97o0roniKxhv2jMSKInUGjLh7V"
+        val call = retrofitInstance.RetrofitInstance.api.getApod(apiKey)
+
+        call.enqueue(object : Callback<ApodData.ApodResponse> {
+            override fun onResponse(
+                call: Call<ApodData.ApodResponse>,
+                response: Response<ApodData.ApodResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val apodResponse: ApodData.ApodResponse? = response.body()
+                    onResult(apodResponse)
+                } else {
+                    onResult(null)
+                }
+            }
+            override fun onFailure(call: Call<ApodData.ApodResponse>, t: Throwable) {
+                onResult(null)
+            }
+        })
+    }
     fun getMarsPhotos(earthDate: String, onResult: (List<String>?) -> Unit) {
         val call = retrofitInstance.RetrofitInstance.api.getMarsPhotos(earthDate = earthDate)
 
@@ -57,9 +73,12 @@ class callAPI {
             }
 
             override fun onFailure(call: Call<earthPic.EarthPic>, t: Throwable) {
+                Log.e("MainActivity", "Erreur lors de l'appel à l'API : ${t.message}", t)
                 onResult(null)
             }
         })
+
+
     }
 
 
