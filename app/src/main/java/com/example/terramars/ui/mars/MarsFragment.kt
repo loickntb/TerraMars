@@ -48,12 +48,6 @@ class MarsFragment : Fragment() {
         var repo = callAPI()
         datePicker.visibility = View.GONE
 
-        /*  val imageUrls = listOf("https://mars.nasa.gov/msl-raw-images/msss/01082/mcam/1082MR0047611000600326E01_DXXX.jpg","https://mars.nasa.gov/msl-raw-images/msss/02739/mcam/2739MR0143580001200802C00_DXXX.jpg", "https://mars.nasa.gov/msl-raw-images/msss/01082/mcam/1082MR0047610990600325E01_DXXX.jpg", "https://mars.nasa.gov/msl-raw-images/msss/01082/mcam/1082MR0047611310600357E01_DXXX.jpg")
-          val adapter = MarsImageAdapter(imageUrls)
-          println(adapter.itemCount)
-          recyclerView.adapter = adapter
-          recyclerView.layoutManager = LinearLayoutManager(context)
-          recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)*/
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         btnShowImages.setOnClickListener {
@@ -74,15 +68,13 @@ class MarsFragment : Fragment() {
 
                 repo.getMarsPhotos(selectedDate) { imageUrls ->
                     if (imageUrls != null) {
-                        // Créez l'adaptateur
+
                         val adapter = MarsImageAdapter(imageUrls)
-                        // Définissez l'adaptateur
                         recyclerView.adapter = adapter
 
-                        // Notifiez à l'adaptateur que l'ensemble de données a changé
                         adapter.notifyDataSetChanged()
                     } else {
-                        // Gérez le cas où imageUrls est null (échec de l'appel API)
+
                         Log.e("MarsFragment", "Échec du chargement des photos de Mars.")
                         Toast.makeText(context, "Erreur lors du chargement des photos de Mars", Toast.LENGTH_SHORT).show()
                     }

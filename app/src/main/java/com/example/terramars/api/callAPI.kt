@@ -4,7 +4,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 class callAPI {
 
     fun getApodData(onResult: (ApodData.ApodResponse?) -> Unit) {

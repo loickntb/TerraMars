@@ -1,6 +1,8 @@
 package com.example.terramars.ui.earth
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +12,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
+import com.example.terramars.api.callAPI
 import com.example.terramars.databinding.FragmentEarthBinding
+import com.squareup.picasso.Picasso
+import java.io.ByteArrayInputStream
+import java.nio.ByteBuffer
 
 class EarthFragment : Fragment() {
 
@@ -45,13 +54,33 @@ class EarthFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
-
+        var repo = callAPI()
         fetchImageButton.setOnClickListener {
 
-            val latitude = latitudeEditText.text.toString()
-            val longitude = longitudeEditText.text.toString()
+            val latitude = latitudeEditText.text.toString().toDoubleOrNull()
+            val longitude = longitudeEditText.text.toString().toDoubleOrNull()
             val date = dateEditText.text.toString()
 
+            if (latitude != null && longitude != null) {
+                repo.getEarthImage(latitude, longitude, date) { imageBase64 ->
+                    if (imageBase64 != null) {
+
+                        val imageBytes = Base64.decode(imageBase64, Base64.DEFAULT)
+
+                        val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+
+                        earthImageView.setImageBitmap(bitmap)
+
+                        descriptionTextView.text = "Description de l'image (à récupérer de l'API Earth)"
+                        earthImageView.visibility = View.VISIBLE
+                    } else {
+                        descriptionTextView.text = "Impossible de récupérer l'image de la Terre pour la date spécifiée."
+                    }
+                }
+
+            } else {
+                descriptionTextView.text = "Latitude et longitude doivent être des nombres valides."
+            }
         }
         return root
     }
