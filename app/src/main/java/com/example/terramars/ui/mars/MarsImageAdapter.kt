@@ -4,7 +4,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.terramars.R
-//import com.example.terramars.data.model.MarsImage
 import com.squareup.picasso.Picasso
 
 class MarsImageAdapter(private val images: List<String>) :
@@ -22,7 +21,6 @@ class MarsImageAdapter(private val images: List<String>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val imageUrl = images[position]
-        // Utilisez une bibliothèque comme Picasso ou Glide pour charger l'image depuis l'URL
         Picasso.get().load(imageUrl).into(holder.imageView)
     }
 

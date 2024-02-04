@@ -63,7 +63,7 @@ class MarsFragment : Fragment() {
                 } else {
                     datePicker.visibility = View.GONE
                     recyclerView.visibility = View.VISIBLE
-                    println("Yesss")
+
                 }
 
                 val selectedDate = "${datePicker.year}-${datePicker.month + 1}-${datePicker.dayOfMonth}"

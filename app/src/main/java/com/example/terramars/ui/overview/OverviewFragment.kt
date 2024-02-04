@@ -17,8 +17,6 @@ class OverviewFragment : Fragment() {
     private lateinit var txtDate: TextView
     private var _binding: FragmentOverviewBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
