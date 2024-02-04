@@ -20,7 +20,7 @@ Emulate with android
 
 ## API
 
-NASA APIs used in TerraMars:
+NASA APIs (https://api.nasa.gov/) used in TerraMars:
 
 ### APOD (Astronomy Picture of the Day):
 Provides daily astronomy images with expert-written descriptions.
@@ -34,6 +34,7 @@ Usage in TerraMars: Displays Earth satellite imagery in the app, allowing users 
 Accesses images captured by NASA's Mars rovers – Curiosity, Opportunity, and Spirit.
 Usage in TerraMars  : Enables users to explore and search for specific images taken on the Martian surface.
 
+## Overview
 ![image](https://github.com/loickntb/TerraMars/assets/125651854/3b2db73e-4369-4cbd-9b7d-1e82cdfb3547)
 ![image](https://github.com/loickntb/TerraMars/assets/125651854/421417f4-50eb-40cd-b5bc-6b94f6c8bc40)
 ![image](https://github.com/loickntb/TerraMars/assets/125651854/668d7831-6944-4f0a-ba2d-de7364c2ec0c)
